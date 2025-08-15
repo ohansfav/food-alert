@@ -255,6 +255,11 @@
                         <a class="nav-link" href="#" onclick="showSection('postings')">Available Food</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/food-posts">
+                            <i class="fas fa-comments"></i> Food Posts
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#" onclick="showSection('recommendations')">For You</a>
                     </li>
                     <li class="nav-item">
@@ -499,6 +504,57 @@
 
     <!-- Notifications -->
     <div id="notifications" class="notification"></div>
+
+    <!-- Chatbot Interface -->
+    <div id="chatbot-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
+        <div id="chatbot-toggle" class="btn btn-primary rounded-circle" style="width: 60px; height: 60px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+            <i class="fas fa-comments"></i>
+        </div>
+        
+        <div id="chatbot-window" style="display: none; position: absolute; bottom: 80px; right: 0; width: 350px; height: 500px; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); flex-direction: column;">
+            <!-- Chatbot Header -->
+            <div style="background: var(--primary-color); color: white; padding: 15px; border-radius: 15px 15px 0 0; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h5 style="margin: 0; font-size: 16px;"><i class="fas fa-robot"></i> Food Alert Assistant</h5>
+                    <small style="opacity: 0.8;">AI-powered help</small>
+                </div>
+                <button id="chatbot-close" class="btn btn-sm" style="background: rgba(255,255,255,0.2); border: none; color: white; padding: 5px 10px;">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- Chat Messages -->
+            <div id="chatbot-messages" style="flex: 1; padding: 15px; overflow-y: auto; background: #f8f9fa;">
+                <div class="chat-message bot-message">
+                    <div style="background: white; padding: 10px 15px; border-radius: 15px; margin-bottom: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <strong>🤖 Food Alert Assistant:</strong><br>
+                        Hello! I'm here to help you with Food Alert. I can assist you with:
+                        <ul style="margin: 5px 0; padding-left: 20px;">
+                            <li>Finding food near you</li>
+                            <li>Posting food items</li>
+                            <li>Using the camera feature</li>
+                            <li>Navigating the app</li>
+                            <li>Answering general questions</li>
+                        </ul>
+                        How can I help you today?
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chat Input -->
+            <div style="padding: 15px; border-top: 1px solid #eee; background: white; border-radius: 0 0 15px 15px;">
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" id="chatbot-input" placeholder="Type your message..." style="flex: 1; border: 1px solid #ddd; border-radius: 20px; padding: 8px 15px; outline: none;">
+                    <button id="chatbot-send" class="btn btn-primary" style="border-radius: 20px; padding: 8px 15px;">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div style="margin-top: 8px; font-size: 12px; color: #666; text-align: center;">
+                    <i class="fas fa-lightbulb" style="color: var(--primary-color);"></i> Try asking: "How do I post food?" or "Find food near me"
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
